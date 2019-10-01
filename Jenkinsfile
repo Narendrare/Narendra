@@ -8,6 +8,9 @@ node{
           sh "${mvnHome}/bin/mvn sonar:sonar"
         }
     }
+    stage('Publish test results') {
+        junit '**/test-results/test/*.xml'
+  } 
    stage('Mvn Package'){
      def mvnHome = tool name: 'maven-3', type: 'maven'
      def mvnCMD = "${mvnHome}/bin/mvn"
