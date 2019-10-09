@@ -1,7 +1,7 @@
 node{
-   stage('SCM Checkout'){
-       git credentialsId: 'git-creds', url: 'https://github.com/Narendrare/babita.git'
-   }
+    stage('Clone') {
+        	checkout scm
+        }
    stage('SonarQube Analysis') {
         def mvnHome =  tool name: 'maven-3', type: 'maven'
         withSonarQubeEnv('sonar-6') { 
