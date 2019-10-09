@@ -1,21 +1,21 @@
 node{
-    stage('Clone') {
-        	checkout scm
-        }
+   stage('SCM Checkout'){
+       git credentialsId: 'git-creds', url: 'https://github.com/Narendrare/babita.git'
+   }
+   stage('Mvn Package'){
+     def mvnHome = tool name: 'maven-3', type: 'maven'
+     def mvnCMD = "${mvnHome}/bin/mvn"
+     sh "${mvnCMD} clean package"
+   }
    stage('SonarQube Analysis') {
         def mvnHome =  tool name: 'maven-3', type: 'maven'
         withSonarQubeEnv('sonar-6') { 
           sh "${mvnHome}/bin/mvn sonar:sonar"
         }
     }
-    stage('Publish test results') {
-        junit '**/test-results/test/*.xml'
-  } 
-   stage('Mvn Package'){
-     def mvnHome = tool name: 'maven-3', type: 'maven'
-     def mvnCMD = "${mvnHome}/bin/mvn"
-     sh "${mvnCMD} clean package"
-   }
+    stage('junit') {
+      junit '**/target/surefire-reports/*.xml'
+    }
    stage('build docker image'){
      /**sh label: '', script: 'docker build -t test .'
       * */
