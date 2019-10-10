@@ -1,6 +1,6 @@
 node{
    stage('SCM Checkout'){
-       git credentialsId: 'git-creds', url: 'https://github.com/Narendrare/babita.git'
+       git credentialsId: 'codeuser', url: 'https://git-codecommit.us-east-2.amazonaws.com/v1/repos/Sankari'
    }
    stage('Mvn Package'){
      def mvnHome = tool name: 'maven-3', type: 'maven'
