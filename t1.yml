@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Lambda application that calls the Lambda API.
+Resources:
+  PmdApi:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: './target/spring-boot-first-web-application-0.0.1-SNAPSHOT.jar'
+      FunctionName: !Sub SS-PMD-API-DEV
+      Handler: app.lambda_handler
+      Runtime: java11
+      Layers:
+        - !Ref New
+      AutoPublishAlias: pmdapipc
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambda_ReadOnlyAccess
+        - AWSXrayWriteOnlyAccess
+        - AWSLambdaVPCAccessExecutionRole
+      Events:
+        HttpPost:
+          Type: Api
+          Properties:
+            Path: '/pmd'
+            Method: post
+  New:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      Description: Layer description
+      ContentUri: 'test.zip'
+      CompatibleRuntimes:
+        - java11
