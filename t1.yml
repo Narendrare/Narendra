@@ -11,7 +11,7 @@ Resources:
       Runtime: java11
       Layers:
         - !Ref New
-      AutoPublishAlias: Alive
+      AutoPublishAlias: pmdapipc
       Policies:
         - AWSLambdaBasicExecutionRole
         - AWSLambda_ReadOnlyAccess
