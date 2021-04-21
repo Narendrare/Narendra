@@ -12,8 +12,6 @@ Resources:
       Layers:
         - !Ref New
       AutoPublishAlias: pmdapipc
-      ProvisionedConcurrencyConfig:
-        ProvisionedConcurrentExecutions: 1
       Policies:
         - AWSLambdaBasicExecutionRole
         - AWSLambda_ReadOnlyAccess
