@@ -5,4 +5,4 @@ s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1fjorkcfscj85"
 region = "us-east-2"
 capabilities = "CAPABILITY_IAM"
 s3_prefix = "PmdApi"
-confirm_changeset = true
+confirm_changeset = false
