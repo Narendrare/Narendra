@@ -5,7 +5,6 @@ Resources:
   PmdApi:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: './target/spring-boot-first-web-application-0.0.1-SNAPSHOT.jar'
       FunctionName: !Sub SS-PMD-API-DEV
       Handler: app.lambda_handler
       Runtime: java11
