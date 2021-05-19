@@ -11,17 +11,13 @@ Resources:
       Layers:
         - !Ref New
       AutoPublishAlias: pmdapipc
-      Policies:
-        - AWSLambdaBasicExecutionRole
-        - AWSLambda_ReadOnlyAccess
-        - AWSXrayWriteOnlyAccess
-        - AWSLambdaVPCAccessExecutionRole
       Events:
         HttpPost:
           Type: Api
           Properties:
             Path: '/pmd'
             Method: post
+            StageName: prod
   New:
     Type: AWS::Serverless::LayerVersion
     Properties:
