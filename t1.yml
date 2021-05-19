@@ -2,6 +2,13 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: An AWS Lambda application that calls the Lambda API.
 Resources:
+  New:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      Description: Layer description
+      ContentUri: 'test.zip'
+      CompatibleRuntimes:
+        - java11
   ApiGatewayApi:
     Type: AWS::Serverless::Api
     Properties:
@@ -28,10 +35,3 @@ Resources:
             Method: post
             RestApiId:
               Ref: ApiGatewayApi
-  New:
-    Type: AWS::Serverless::LayerVersion
-    Properties:
-      Description: Layer description
-      ContentUri: 'test.zip'
-      CompatibleRuntimes:
-        - java11
