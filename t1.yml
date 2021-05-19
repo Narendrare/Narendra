@@ -9,7 +9,7 @@ Resources:
       ContentUri: 'test.zip'
       CompatibleRuntimes:
         - java11
-  ApiGatewayApi:
+  pmdapi:
     Type: AWS::Serverless::Api
     Properties:
       StageName: prod
@@ -34,4 +34,4 @@ Resources:
             Path: '/pmd'
             Method: post
             RestApiId:
-              Ref: ApiGatewayApi
+              Ref: pmdapi
