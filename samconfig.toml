@@ -1,8 +1,8 @@
 version = 0.1
 [default.deploy.parameters]
-stack_name = "PmdApi"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1fjorkcfscj85"
+stack_name = "pmdapi"
+s3_bucket = "pmdapi"
 region = "us-east-2"
 capabilities = "CAPABILITY_IAM"
-s3_prefix = "PmdApi"
+s3_prefix = "pmdapi"
 confirm_changeset = false
