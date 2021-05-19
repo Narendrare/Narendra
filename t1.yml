@@ -22,6 +22,7 @@ Resources:
           Properties:
             Path: '/pmd'
             Method: post
+            StageName: prod
   New:
     Type: AWS::Serverless::LayerVersion
     Properties:
