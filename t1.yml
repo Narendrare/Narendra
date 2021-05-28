@@ -11,6 +11,7 @@ Resources:
         - java11
   pmdapi:
     Type: AWS::Serverless::Api
+    Name: !Sub SSP-PMD-DEV
     Properties:
       StageName: prod
   PmdApi:
@@ -24,8 +25,6 @@ Resources:
       AutoPublishAlias: pmdapipc
       Policies:
         - AWSLambdaBasicExecutionRole
-        - AWSLambda_ReadOnlyAccess
-        - AWSXrayWriteOnlyAccess
         - AWSLambdaVPCAccessExecutionRole
       Events:
         HttpPost:
