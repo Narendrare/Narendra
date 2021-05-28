@@ -25,6 +25,7 @@ Resources:
       AutoPublishAlias: pmdapipc
       Policies:
         - AWSLambdaBasicExecutionRole
+        - AWSXrayWriteOnlyAccess
         - AWSLambdaVPCAccessExecutionRole
       Events:
         HttpPost:
