@@ -1,6 +1,3 @@
-FROM tomcat
-COPY target/*.war /usr/local/tomcat/webapps
-CMD /usr/local/tomcat/bin/startup.sh
-EXPOSE 8080
-
-
+FROM maven:3.8.1-adoptopenjdk-8
+ADD . /app
+WORKDIR /app
