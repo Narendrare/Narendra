@@ -6,20 +6,20 @@ pipeline {
     }
 
     triggers {
-      bitBucketTrigger(
+      githubTrigger(
         [
             [
-                $class: 'BitBucketPPRPullRequestServerTriggerFilter',
+                $class: 'GitHubPPRPullRequestServerTriggerFilter',
                 actionFilter: [
-                    $class: 'BitBucketPPRPullRequestServerCreatedActionFilter',
+                    $class: 'GitHuPPRPullRequestServerCreatedActionFilter',
                     allowedBranches: '',
                     isToApprove: true
                 ]
             ],
             [
-                $class: 'BitBucketPPRPullRequestServerTriggerFilter',
+                $class: 'GitHuPPRPullRequestServerTriggerFilter',
                 actionFilter: [
-                    $class: 'BitBucketPPRPullRequestServerUpdatedActionFilter',
+                    $class: 'GitHuPPRPullRequestServerUpdatedActionFilter',
                     allowedBranches: '',
                     isToApprove: true
                 ]
