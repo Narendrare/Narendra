@@ -16,13 +16,6 @@ pipeline {
                     isToApprove: true
                 ]
             ],
-            [
-                $class: 'GitHuPPRPullRequestServerTriggerFilter',
-                actionFilter: [
-                    $class: 'GitHuPPRPullRequestServerUpdatedActionFilter',
-                    allowedBranches: '',
-                    isToApprove: true
-                ]
             ]
         ])
     }
