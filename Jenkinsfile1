@@ -5,8 +5,7 @@ pipeline {
         stage('Package') {
             steps {
                 script {
-                    configFileProvider([configFile(fileId: 'ss-m2-settings', variable: 'M2_SETTINGS')]) {
-                        sh 'mvn -s $M2_SETTINGS -B -e package -Dmaven.main.skip -Dmaven.test.skip=true'
+                    sh "terraform -version"
                     }
                 }
             }
